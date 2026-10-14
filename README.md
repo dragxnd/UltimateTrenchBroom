@@ -6,8 +6,6 @@ An extended, unofficial fork of [TrenchBroom](https://github.com/TrenchBroom/Tre
 
 **[Windows v0.4 download](https://github.com/dragxnd/UltimateTrenchBroom/releases/tag/v0.4)** | **[Documentation](https://dragxnd.github.io/UltimateTrenchBroom/)** | [Documentation source](docs/index.html)
 
-The English visual guide covers 32 topics with 95 real editor screenshots and short, step-by-step instructions.
-
 ## What's New in This Fork
 
 - **Terrain**: live procedural terrain, segment counts, noise, seed, height, generation side, triangular or square cells, and optional grouping.
