@@ -20,13 +20,13 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "CompanyName", "TrenchBroom"
-            VALUE "FileDescription", "TrenchBroom Level Editor"
-            VALUE "FileVersion", VERSION_WIN_RC
-            VALUE "InternalName", "TrenchBroom.exe"
+            VALUE "CompanyName", "Ultimate Trench Broom"
+            VALUE "FileDescription", "Ultimate Trench Broom Level Editor"
+            VALUE "FileVersion", VERSION_STR
+            VALUE "InternalName", "UltimateTrenchBroom.exe"
             VALUE "LegalCopyright", "Copyright (C) 2010"
-            VALUE "OriginalFilename", "TrenchBroom.exe"
-            VALUE "ProductName", "TrenchBroom"
+            VALUE "OriginalFilename", "UltimateTrenchBroom.exe"
+            VALUE "ProductName", "Ultimate Trench Broom"
             VALUE "ProductVersion", VERSION_STR
         END
     END

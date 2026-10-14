@@ -17,7 +17,8 @@ if(POLICY CMP0063)
 endif()
 
 set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
-set(VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/vcpkg-overlay-ports/freeimage;${CMAKE_SOURCE_DIR}/vcpkg-overlay-ports/openexr")
+set(VCPKG_OVERLAY_PORTS
+  "${CMAKE_SOURCE_DIR}/vcpkg-overlay-ports/cpptrace;${CMAKE_SOURCE_DIR}/vcpkg-overlay-ports/freeimage;${CMAKE_SOURCE_DIR}/vcpkg-overlay-ports/imath;${CMAKE_SOURCE_DIR}/vcpkg-overlay-ports/openexr")
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
@@ -33,7 +34,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-project(TrenchBroom C CXX)
+project(TrenchBroom VERSION 0.4 LANGUAGES C CXX)
 
 include(CTest)
 
@@ -120,10 +121,15 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
 find_package(FastFloat CONFIG REQUIRED)
 endif()
 
-# Populate version variables using git
+# Keep the fork's release version independent of upstream calendar-version tags.
 get_git_describe("${GIT_EXECUTABLE}" "${CMAKE_SOURCE_DIR}" GIT_DESCRIBE)
-get_app_version(GIT_DESCRIBE APP_VERSION_YEAR APP_VERSION_NUMBER APP_VERSION_RC)
-get_app_version_str(APP_VERSION_YEAR APP_VERSION_NUMBER APP_VERSION_RC APP_VERSION_STR)
+set(APP_VERSION_YEAR "${PROJECT_VERSION_MAJOR}")
+set(APP_VERSION_NUMBER "${PROJECT_VERSION_MINOR}")
+set(APP_VERSION_RC "")
+set(APP_VERSION_STR "${PROJECT_VERSION}")
+if(GIT_DESCRIBE STREQUAL "unknown")
+  set(GIT_DESCRIBE "v${PROJECT_VERSION}")
+endif()
 set(APP_BUILD_TYPE "${CMAKE_BUILD_TYPE}")
 
 # Some global variables used in several targets

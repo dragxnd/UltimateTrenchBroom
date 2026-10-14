@@ -37,6 +37,7 @@
 #include "render/MapRenderer.h"
 #include "render/RenderContext.h"
 #include "render/SelectionBoundsRenderer.h"
+#include "ui/BezierBendToolController.h"
 #include "ui/CameraAnimation.h"
 #include "ui/CameraLinkHelper.h"
 #include "ui/CameraTool2D.h"
@@ -51,10 +52,14 @@
 #include "ui/MapDocument.h"
 #include "ui/MapViewToolBox.h"
 #include "ui/MoveObjectsToolController.h"
+#include "ui/PrefabToolController.h"
+#include "ui/PolygonCutToolController.h"
 #include "ui/RotateToolController.h"
 #include "ui/ScaleToolController.h"
+#include "ui/SculptToolController.h"
 #include "ui/SelectionTool.h"
 #include "ui/ShearToolController.h"
+#include "ui/SymmetryToolController.h"
 #include "ui/VertexTool.h"
 #include "ui/VertexToolController.h"
 
@@ -128,13 +133,19 @@ void MapView2D::initializeToolChain(MapViewToolBox& toolBox)
   addToolController(std::make_unique<RotateToolController2D>(toolBox.rotateTool()));
   addToolController(std::make_unique<ScaleToolController2D>(toolBox.scaleTool()));
   addToolController(std::make_unique<ShearToolController2D>(toolBox.shearTool()));
+  addToolController(std::make_unique<SymmetryToolController>(toolBox.symmetryTool()));
+  addToolController(std::make_unique<BezierBendToolController>(toolBox.bezierBendTool()));
+  addToolController(std::make_unique<SculptToolController>(toolBox.sculptTool()));
   addToolController(std::make_unique<ExtrudeToolController2D>(toolBox.extrudeTool()));
   addToolController(std::make_unique<ClipToolController2D>(toolBox.clipTool()));
+  addToolController(
+    std::make_unique<PolygonCutToolController2D>(toolBox.polygonCutTool()));
   addToolController(std::make_unique<VertexToolController>(toolBox.vertexTool()));
   addToolController(std::make_unique<EdgeToolController>(toolBox.edgeTool()));
   addToolController(std::make_unique<FaceToolController>(toolBox.faceTool()));
   addToolController(
     std::make_unique<CreateEntityToolController2D>(toolBox.createEntityTool()));
+  addToolController(std::make_unique<PrefabToolController2D>(toolBox.prefabTool()));
   addToolController(std::make_unique<SelectionTool>(m_document));
   addToolController(
     std::make_unique<DrawShapeToolController2D>(toolBox.drawShapeTool(), m_document));

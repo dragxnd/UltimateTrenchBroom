@@ -37,6 +37,7 @@ class MapViewBar;
 enum class MapViewLayout;
 class MapViewToolBox;
 class MultiPaneMapView;
+class PolygonCutTool;
 class Tool;
 class VertexTool;
 
@@ -79,6 +80,14 @@ public:
   void toggleClipTool();
   ClipTool& clipTool();
 
+  bool polygonCutToolActive() const;
+  bool canTogglePolygonCutTool() const;
+  void togglePolygonCutTool();
+  PolygonCutTool& polygonCutTool();
+  bool polygonSpawnToolActive() const;
+  bool canTogglePolygonSpawnTool() const;
+  void togglePolygonSpawnTool();
+
   bool rotateToolActive() const;
   bool canToggleRotateTool() const;
   void toggleRotateTool();
@@ -91,14 +100,47 @@ public:
   bool canToggleShearTool() const;
   void toggleShearTool();
 
+  bool symmetryToolActive() const;
+  bool symmetryToolPanelSelected() const;
+  bool symmetryModifierActive() const;
+  bool canToggleSymmetryTool() const;
+  void toggleSymmetryTool();
+
   bool canToggleVertexTools() const;
   bool anyVertexToolActive() const;
   bool vertexToolActive() const;
   bool edgeToolActive() const;
+  bool bevelToolActive() const;
   bool faceToolActive() const;
+  bool insetToolActive() const;
+  bool spinToolActive() const;
+  bool bezierBendToolActive() const;
+  bool sculptToolActive() const;
+  bool arrayToolActive() const;
   void toggleVertexTool();
   void toggleEdgeTool();
+  bool canToggleBevelTool() const;
+  void toggleBevelTool();
+  void applyBevelTool();
   void toggleFaceTool();
+  bool canToggleInsetTool() const;
+  void toggleInsetTool();
+  void applyInsetTool();
+  bool canToggleSpinTool() const;
+  void toggleSpinTool();
+  void applySpinTool(bool snapVerticesToInteger);
+  bool canToggleBezierBendTool() const;
+  void toggleBezierBendTool();
+  void applyBezierBendTool();
+  bool canToggleSculptTool() const;
+  void toggleSculptTool();
+  bool canToggleArrayTool() const;
+  void toggleArrayTool();
+  void applyArrayTool();
+  bool subdivisionToolActive() const;
+  bool canToggleSubdivisionTool() const;
+  void toggleSubdivisionTool();
+  void applySubdivisionTool();
   VertexTool& vertexTool();
   EdgeTool& edgeTool();
   FaceTool& faceTool();

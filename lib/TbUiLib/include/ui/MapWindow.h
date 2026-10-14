@@ -41,6 +41,7 @@ class QLabel;
 class QSplitter;
 class QTimer;
 class QToolBar;
+class QToolButton;
 
 namespace tb
 {
@@ -82,6 +83,7 @@ class ObjExportDialog;
 class SignalDelayer;
 class SwitchableMapViewContainer;
 class Tool;
+class UnitySyncDialog;
 
 class MapWindow : public QMainWindow
 {
@@ -109,10 +111,14 @@ private:
   Inspector* m_inspector = nullptr;
 
   QComboBox* m_gridChoice = nullptr;
+  QToolButton* m_autoSnapVerticesToIntegerButton = nullptr;
+  bool m_autoSnapVerticesToInteger = false;
+  bool m_applyingAutoSnapVerticesToInteger = false;
   QLabel* m_statusBarLabel = nullptr;
 
   QPointer<CompilationDialog> m_compilationDialog;
   QPointer<ObjExportDialog> m_objExportDialog;
+  QPointer<UnitySyncDialog> m_unitySyncDialog;
 
   std::optional<std::string> m_lastCompilationProfileName;
 
@@ -163,6 +169,7 @@ private: // menu bar
 private: // tool bar
   void createToolBar();
   void updateToolBarWidgets();
+  void applyAutoSnapVerticesToInteger();
 
 private: // status bar
   void createStatusBar();
@@ -210,6 +217,8 @@ public:
   bool exportDocumentAsObj();
   bool exportDocumentAsMap();
   bool exportDocument(const mdl::ExportOptions& options);
+  void showUnitySyncDialog();
+  void showGuideScreenshotDialog();
 
 private:
   bool confirmOrDiscardChanges();
@@ -300,6 +309,33 @@ public:
   bool canToggleClipTool() const;
   bool clipToolActive() const;
 
+  void togglePolygonCutTool();
+  bool canTogglePolygonCutTool() const;
+  bool polygonCutToolActive() const;
+  void togglePolygonSpawnTool();
+  bool canTogglePolygonSpawnTool() const;
+  bool polygonSpawnToolActive() const;
+
+  void showTerrainGeneratorDialog();
+  bool canShowTerrainGeneratorDialog() const;
+  bool terrainGeneratorActive() const;
+
+  void showRockGeneratorDialog();
+  bool canShowRockGeneratorDialog() const;
+  bool rockGeneratorActive() const;
+
+  void showSpawnMasterDialog();
+  bool canShowSpawnMasterDialog() const;
+
+  void importModelAsBrushes();
+  bool canImportModelAsBrushes() const;
+  void convertTriangulatedBrushes();
+  bool canConvertTriangulatedBrushes() const;
+
+  void showGridRotationDialog();
+  bool canShowGridRotationDialog() const;
+  bool gridRotationActive() const;
+
   void toggleRotateTool();
   bool canToggleRotateTool() const;
   bool rotateToolActive() const;
@@ -312,6 +348,12 @@ public:
   bool canToggleShearTool() const;
   bool shearToolActive() const;
 
+  void toggleSymmetryTool();
+  bool canToggleSymmetryTool() const;
+  bool symmetryToolActive() const;
+  bool symmetryToolPanelSelected() const;
+  bool symmetryModifierActive() const;
+
   bool anyVertexToolActive() const;
 
   void toggleVertexTool();
@@ -322,15 +364,49 @@ public:
   bool canToggleEdgeTool() const;
   bool edgeToolActive() const;
 
+  void toggleBevelTool();
+  bool canToggleBevelTool() const;
+  bool bevelToolActive() const;
+  void applyBevelTool();
+
   void toggleFaceTool();
   bool canToggleFaceTool() const;
   bool faceToolActive() const;
+
+  void toggleInsetTool();
+  bool canToggleInsetTool() const;
+  bool insetToolActive() const;
+  void applyInsetTool();
+
+  void toggleSpinTool();
+  bool canToggleSpinTool() const;
+  bool spinToolActive() const;
+  void applySpinTool();
+
+  void toggleBezierBendTool();
+  bool canToggleBezierBendTool() const;
+  bool bezierBendToolActive() const;
+  void applyBezierBendTool();
+  void toggleSculptTool();
+  bool canToggleSculptTool() const;
+  bool sculptToolActive() const;
+  void toggleArrayTool();
+  bool canToggleArrayTool() const;
+  bool arrayToolActive() const;
+  void applyArrayTool();
+  void toggleSubdivisionTool();
+  bool canToggleSubdivisionTool() const;
+  bool subdivisionToolActive() const;
+  void applySubdivisionTool();
 
   void csgConvexMerge();
   bool canDoCsgConvexMerge() const;
 
   void csgSubtract();
   bool canDoCsgSubtract() const;
+
+  void csgSubtract2();
+  bool canDoCsgSubtract2() const;
 
   void csgHollow();
   bool canDoCsgHollow() const;

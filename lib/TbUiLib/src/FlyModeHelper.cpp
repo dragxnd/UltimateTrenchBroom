@@ -20,6 +20,7 @@
 #include "ui/FlyModeHelper.h"
 
 #include <QElapsedTimer>
+#include <QKeyEvent>
 #include <QMouseEvent>
 
 #include "PreferenceManager.h"
@@ -51,7 +52,28 @@ bool eventMatchesShortcut(const QKeySequence& shortcut, QKeyEvent* event)
   // e.g. you can't bind Shift+W to fly forward, only Shift or W.
   const auto ourKey = shortcut[0].key();
   const auto theirKey = event->key();
-  return ourKey == theirKey;
+  if (ourKey == theirKey)
+  {
+    return true;
+  }
+
+#ifdef _WIN32
+  // On non-Latin keyboard layouts Qt reports translated keys such as Cyrillic
+  // letters in event->key(). The native virtual key still identifies the physical
+  // letter key, so keep fly movement working on layouts like Russian.
+  if (ourKey >= Qt::Key_A && ourKey <= Qt::Key_Z)
+  {
+    return event->nativeVirtualKey()
+           == static_cast<quint32>('A' + (ourKey - Qt::Key_A));
+  }
+  if (ourKey >= Qt::Key_0 && ourKey <= Qt::Key_9)
+  {
+    return event->nativeVirtualKey()
+           == static_cast<quint32>('0' + (ourKey - Qt::Key_0));
+  }
+#endif
+
+  return false;
 }
 
 } // namespace

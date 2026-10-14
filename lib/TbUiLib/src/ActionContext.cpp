@@ -111,6 +111,10 @@ std::string actionContextName(const ActionContext::Type actionContext)
     {
       actionContexts.emplace_back("clip tool");
     }
+    if (actionContext & ActionContext::PolygonCutTool)
+    {
+      actionContexts.emplace_back("polygon cut tool");
+    }
     if (actionContext & ActionContext::RotateTool)
     {
       actionContexts.emplace_back("rotate tool");
@@ -118,6 +122,30 @@ std::string actionContextName(const ActionContext::Type actionContext)
     if (actionContext & ActionContext::AnyVertexTool)
     {
       actionContexts.emplace_back("any vertex tool");
+    }
+    if (actionContext & ActionContext::BezierBendTool)
+    {
+      actionContexts.emplace_back("bezier bend tool");
+    }
+    if (actionContext & ActionContext::PolygonCutMode)
+    {
+      actionContexts.emplace_back("polygon cut mode");
+    }
+    if (actionContext & ActionContext::PolygonSpawnMode)
+    {
+      actionContexts.emplace_back("polygon spawn mode");
+    }
+    if (actionContext & ActionContext::BevelMode)
+    {
+      actionContexts.emplace_back("bevel mode");
+    }
+    if (actionContext & ActionContext::InsetMode)
+    {
+      actionContexts.emplace_back("inset mode");
+    }
+    if (actionContext & ActionContext::SpinMode)
+    {
+      actionContexts.emplace_back("spin mode");
     }
   }
 

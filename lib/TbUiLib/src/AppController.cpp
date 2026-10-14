@@ -99,7 +99,10 @@ auto createGameManager()
                  kdl::str_join(warnings, "\n\n"));
 
                QMessageBox::critical(
-                 nullptr, "TrenchBroom", QString::fromStdString(msg), QMessageBox::Ok);
+                 nullptr,
+                 "Ultimate Trench Broom",
+                 QString::fromStdString(msg),
+                 QMessageBox::Ok);
              }
 
              return std::make_unique<mdl::GameManager>(std::move(gameManager));
@@ -258,9 +261,9 @@ void AppController::askForAutoUpdates()
     const auto enableAutoCheck =
       QMessageBox::question(
         nullptr,
-        "TrenchBroom",
+        "Ultimate Trench Broom",
         tr(
-          R"(TrenchBroom can check for updates automatically. Would you like to enable this now?)"),
+          R"(Ultimate Trench Broom can check for updates automatically. Would you like to enable this now?)"),
         QMessageBox::Yes | QMessageBox::No)
       == QMessageBox::Yes;
 
@@ -298,7 +301,7 @@ bool AppController::newDocument()
            })
          | kdl::transform_error([&](const auto& e) {
              QMessageBox::critical(
-               nullptr, "TrenchBroom", e.msg.c_str(), QMessageBox::Ok);
+               nullptr, "Ultimate Trench Broom", e.msg.c_str(), QMessageBox::Ok);
              return false;
            })
          | kdl::value();
@@ -359,7 +362,7 @@ bool AppController::openDocument(const std::filesystem::path& path)
            })
          | kdl::transform_error([&](const auto& e) {
              QMessageBox::critical(
-               nullptr, "TrenchBroom", e.msg.c_str(), QMessageBox::Ok);
+               nullptr, "Ultimate Trench Broom", e.msg.c_str(), QMessageBox::Ok);
              return false;
            })
          | kdl::value();

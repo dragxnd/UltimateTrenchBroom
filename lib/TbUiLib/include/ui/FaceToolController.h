@@ -28,6 +28,8 @@ class FaceTool;
 class FaceToolController : public VertexToolControllerBase<FaceTool>
 {
 private:
+  class InsetFacePart;
+  class SpinHandlePart;
   class SelectFacePart;
   class MoveFacePart;
 

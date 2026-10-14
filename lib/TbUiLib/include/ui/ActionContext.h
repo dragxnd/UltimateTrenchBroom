@@ -33,16 +33,25 @@ constexpr Type AnyView = View3D | View2D;
 constexpr Type NoTool = 1u << 2u;
 constexpr Type AssembleBrushTool = 1u << 3u;
 constexpr Type ClipTool = 1u << 4u;
-constexpr Type RotateTool = 1u << 5u;
-constexpr Type ScaleTool = 1u << 6u;
-constexpr Type ShearTool = 1u << 7u;
-constexpr Type AnyVertexTool = 1u << 8u;
-constexpr Type AnyTool =
-  AnyVertexTool | AssembleBrushTool | ClipTool | RotateTool | ScaleTool | ShearTool;
+constexpr Type PolygonCutTool = 1u << 5u;
+constexpr Type RotateTool = 1u << 6u;
+constexpr Type ScaleTool = 1u << 7u;
+constexpr Type ShearTool = 1u << 8u;
+constexpr Type AnyVertexTool = 1u << 9u;
+constexpr Type BezierBendTool = 1u << 13u;
+constexpr Type PolygonCutMode = 1u << 14u;
+constexpr Type PolygonSpawnMode = 1u << 15u;
+constexpr Type BevelMode = 1u << 16u;
+constexpr Type InsetMode = 1u << 17u;
+constexpr Type SpinMode = 1u << 18u;
+constexpr Type AnyTool = AnyVertexTool | AssembleBrushTool | ClipTool | PolygonCutTool
+                         | RotateTool | ScaleTool | ShearTool | BezierBendTool
+                         | PolygonCutMode | PolygonSpawnMode | BevelMode | InsetMode
+                         | SpinMode;
 constexpr Type AnyOrNoTool = AnyTool | NoTool;
-constexpr Type NoSelection = 1u << 9u;
-constexpr Type NodeSelection = 1u << 10u;
-constexpr Type FaceSelection = 1u << 11u;
+constexpr Type NoSelection = 1u << 10u;
+constexpr Type NodeSelection = 1u << 11u;
+constexpr Type FaceSelection = 1u << 12u;
 constexpr Type AnySelection = NodeSelection | FaceSelection;
 constexpr Type AnyOrNoSelection = AnySelection | NoSelection;
 constexpr Type Any = AnyView | AnyOrNoSelection | AnyOrNoTool;

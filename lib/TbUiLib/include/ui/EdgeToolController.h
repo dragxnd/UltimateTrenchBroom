@@ -28,6 +28,7 @@ class EdgeTool;
 class EdgeToolController : public VertexToolControllerBase<EdgeTool>
 {
 private:
+  class ChamferEdgePart;
   class SelectEdgePart;
   class MoveEdgePart;
 
