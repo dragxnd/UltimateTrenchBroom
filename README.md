@@ -4,7 +4,7 @@
 
 An extended, unofficial fork of [TrenchBroom](https://github.com/TrenchBroom/TrenchBroom) for brush-based level design. The original editor, its history, and its GPL license remain the foundation of this project.
 
-**[Windows v0.4 download](https://github.com/dragxnd/UltimateTrenchBroom/releases/tag/v0.4)** | **[Visual documentation](https://dragxnd.github.io/UltimateTrenchBroom/)** | [Documentation source](docs/index.html)
+**[Windows v0.4 download](https://github.com/dragxnd/UltimateTrenchBroom/releases/tag/v0.4)** | **[Documentation](https://dragxnd.github.io/UltimateTrenchBroom/)** | [Documentation source](docs/index.html)
 
 The English visual guide covers 32 topics with 95 real editor screenshots and short, step-by-step instructions.
 
