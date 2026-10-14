@@ -1,5 +1,7 @@
 # Ultimate Trench Broom
 
+<img src="app/TrenchBroom/resources/graphics/images/AppIcon.png" width="128" alt="Ultimate Trench Broom icon">
+
 An extended, unofficial fork of [TrenchBroom](https://github.com/TrenchBroom/TrenchBroom) for brush-based level design. The original editor, its history, and its GPL license remain the foundation of this project.
 
 **[Windows v0.4 download](https://github.com/dragxnd/UltimateTrenchBroom/releases/tag/v0.4)** | **[Visual documentation](https://dragxnd.github.io/UltimateTrenchBroom/)** | [Documentation source](docs/index.html)
@@ -58,7 +60,7 @@ The editor is distributed under [GPL-3.0-or-later](LICENSE.txt), retaining upstr
 
 # Original TrenchBroom
 
-[![TrenchBroom Icon](app/TrenchBroom/resources/graphics/images/AppIcon.png)](https://www.youtube.com/watch?v=shcAvnYp9ow)
+[![Original TrenchBroom Icon](docs/assets/upstream-icon.png)](https://www.youtube.com/watch?v=shcAvnYp9ow)
 
 TrenchBroom is a modern cross-platform level editor for Quake-engine based games.
 
